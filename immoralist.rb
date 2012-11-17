@@ -55,7 +55,7 @@ Upadte ID #{_id}
  - description: #{user_data['description']}
  - location: #{user_data['location']}
 EOF
-    ret = @repo.commit_all( message )
+    ret = @repo.commit_index( message )
     unless /^#/ =~ ret
       print "Commit: Upadte #{_id} ( #{user_data["screen_name"]} )\n"
     end
@@ -70,6 +70,11 @@ def streaming
   request = Net::HTTP::Get.new( request_uri )
   cons  = OAuth::Consumer.new( KEY, SEC, { :site=>"https://api.twitter.com/ " } )
   token = OAuth::AccessToken.new( cons, @config[:access_token], @config[:access_token_secret] )
+  #response = token.get('/1.1/account/verify_credentials.json')
+  #json = JSON::parse( response.body )
+  #branch = json['id_str']
+  #print "use branch '#{branch}'\n"
+  #@repo.checkout( branch )
   request.oauth!( http, cons, token )
   print "Stalking start\n"
   begin
@@ -98,7 +103,7 @@ def streaming
                 end
               end
               @repo.add( 'ids' )
-              @repo.commit_all( "Add #{ids_added.size }ids\n\n - Added: #{ids_added.join(', ')}\n" )
+              @repo.commit_index( "Add #{ids_added.size }ids\n\n - Added: #{ids_added.join(', ')}\n" )
             }
             next
           end
