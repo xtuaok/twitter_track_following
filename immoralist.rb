@@ -94,16 +94,22 @@ def streaming
               ids_added = []
               json['friends'].each do |_id|
                 unless File.exist?( "ids/#{_id}" )
-                  response = token.get( "/1.1/users/show.json?user_id=#{_id}" )
-                  next unless response.code.to_i == 200
-                  user_data = JSON::parse( response.body )
-                  @queue.push( [ user_data, false ] )
-                  ids_added.push( _id )
-                  break if response.header['X-Rate-Limit-Remaining'].to_i < 10
+                  begin
+                    response = token.get( "/1.1/users/show.json?user_id=#{_id}" )
+                    next unless response.code.to_i == 200
+                    user_data = JSON::parse( response.body )
+                    @queue.push( [ user_data, false ] )
+                    ids_added.push( _id )
+                    break if response.header['X-Rate-Limit-Remaining'].to_i < 10
+                  rescue
+                    print "#{Time.now.to_s}\n"
+                    print "#{$!}\n"
+                    print "#{$!.backtrace.join("\n")}\n"
+                  end
                 end
               end
               @repo.add( 'ids' )
-              @repo.commit_index( "Add #{ids_added.size }ids\n\n - Added: #{ids_added.join(', ')}\n" )
+              @repo.commit_index( "Add #{ids_added.size} ids\n\n - Added: #{ids_added.join(', ')}\n" )
             }
             next
           end
