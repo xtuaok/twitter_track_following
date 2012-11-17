@@ -48,7 +48,7 @@ EOF
   if commit
     @repo.add("ids/#{_id}")
     message = <<EOF
-Upadte ID #{_id}
+Update ID #{_id}
 
  - screen_name: #{user_data['screen_name']}
  - name: #{user_data['name']}
@@ -57,7 +57,7 @@ Upadte ID #{_id}
 EOF
     ret = @repo.commit_index( message )
     unless /^#/ =~ ret
-      print "Commit: Upadte #{_id} ( #{user_data["screen_name"]} )\n"
+      print "Commit: Update #{_id} ( #{user_data["screen_name"]} )\n"
     end
   end
 end
