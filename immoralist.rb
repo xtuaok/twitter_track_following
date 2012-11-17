@@ -93,7 +93,7 @@ def streaming
                   next unless response.code.to_i == 200
                   user_data = JSON::parse( response.body )
                   @queue.push( [ user_data, false ] )
-                  ids_add.push( _id )
+                  ids_added.push( _id )
                   break if response.header['X-Rate-Limit-Remaining'].to_i < 10
                 end
               end
