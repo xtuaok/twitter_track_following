@@ -98,7 +98,7 @@ def streaming
                 end
               end
               @repo.add( 'ids' )
-              @repo.commit_a( "Add #{ids_added.size }ids\n\n - Added: #{ids_added.join(', ')}\n" )
+              @repo.commit_all( "Add #{ids_added.size }ids\n\n - Added: #{ids_added.join(', ')}\n" )
             }
             next
           end
