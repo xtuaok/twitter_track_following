@@ -95,6 +95,7 @@ def streaming
               json['friends'].each do |_id|
                 unless File.exist?( "ids/#{_id}" )
                   begin
+                    sleep 0.5
                     response = token.get( "/1.1/users/show.json?user_id=#{_id}" )
                     next unless response.code.to_i == 200
                     user_data = JSON::parse( response.body )
