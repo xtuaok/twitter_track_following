@@ -1,10 +1,8 @@
 screen_name: earthquake_jp
 name: 地震速報
 description: [BOT]警戒：震度1以上 もしくは M3以上の地震情報を提供しています。
-運用状況:http://j.mp/fowbbT
-状況を見て通知する地震情報を変更します。
 
-基本的に返事は行いません。問い合わせは@ariela もしくはyuki at transrain.netに
+基本的に返事は行いません。問い合わせは@ariela もしくはyuki at http://transrain.netにどうぞ。
 
-非公式RTを繰り返すBOTはブロックします
+非公式RTを繰り返すBOTはブロックします。
 location: 
