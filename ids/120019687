@@ -1,4 +1,4 @@
 screen_name: ntddk
 name: 能登だでぃ子
-description: _emit 0x0f
+description: __asm _emit 0x0F __asm _emit 0xA2
 location: 遠藤山，秋葉原
