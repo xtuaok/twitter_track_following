@@ -1,4 +1,4 @@
 screen_name: toby_net
-name: ジャバScriptと和解せよ
-description: ジャバScriptは永遠の命を与える - リファレンス
-location: ジャバScript星(本籍)
+name: 有人ジャバScript
+description: リモートで任意のジャボスクリプトが実行された場合、無人ジャバスクリプトが引き起こしたユーザの意図しない影響は誰の責任となるのか。また、無人ジャバスクリプトはSame Origin かそうでないかを確実に判断できるのか。無人ジャバスクリプトは倫理上の問題があるのではないか。
+location: Webブラウザ
