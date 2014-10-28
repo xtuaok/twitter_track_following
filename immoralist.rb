@@ -1,4 +1,4 @@
-#!/usr/bin/ruby1.9.1
+#!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
 
 require 'fileutils'
@@ -55,7 +55,7 @@ Update ID #{_id}
  - description: #{user_data['description']}
  - location: #{user_data['location']}
 EOF
-    ret = @repo.commit_index( message )
+    ret = @repo.commit_index( message.gsub(/@([A-Za-z0-9_]+)/, '\1') )
     unless /^#/ =~ ret
       print "Commit: Update #{_id} ( #{user_data["screen_name"]} )\n"
     end
