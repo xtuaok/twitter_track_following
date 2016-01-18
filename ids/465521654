@@ -1,9 +1,8 @@
 screen_name: akari_daisuki
 name: あかり大好きbot
-description: ゆるゆり さん☆ハイ！放送中！！！
-「わぁい○○ あかり○○大好き」をひたすら呟く非公式botです。
-WikipediaとTLから言葉を拾います。
-「フォローして」とリプライするとフォロー返しします。
+description: 「わぁい○○ あかり○○大好き」をひたすら呟く非公式botです。
+WikipediaとTLからランダムに言葉を拾います。
+フォロー返しが欲しい場合「フォローして」とリプライを送ってください。
 @akaripediaもご一緒にどうぞ。
 何かあれば@TuNE_cocoamoeまで。
 location: 
