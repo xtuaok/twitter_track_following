@@ -68,7 +68,7 @@ def streaming
   http.use_ssl = true if uri.scheme == 'https'
   request_uri = uri.request_uri
   request = Net::HTTP::Get.new( request_uri )
-  cons  = OAuth::Consumer.new( KEY, SEC, { :site=>"https://api.twitter.com/ " } )
+  cons  = OAuth::Consumer.new( KEY, SEC, { :site=>"https://api.twitter.com/" } )
   token = OAuth::AccessToken.new( cons, @config[:access_token], @config[:access_token_secret] )
   #response = token.get('/1.1/account/verify_credentials.json')
   #json = JSON::parse( response.body )
@@ -104,6 +104,7 @@ def streaming
                     break if response.header['X-Rate-Limit-Remaining'].to_i < 10
                   rescue
                     print "#{Time.now.to_s}\n"
+                    print "ID: #{_id}"
                     print "#{$!}\n"
                     print "#{$!.backtrace.join("\n")}\n"
                   end
