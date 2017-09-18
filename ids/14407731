@@ -1,4 +1,4 @@
 screen_name: mizchi
-name: 社会経験
+name: {{alert()}}
 description: 趣味はオーバーエンジニアリングです
 location: フロントエンドの崖
